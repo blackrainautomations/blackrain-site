@@ -24,14 +24,16 @@ async function downloadTtf(family, weight = 400) {
 
 await mkdir(fontsDir, { recursive: true });
 
+// Both the BLACKRAIN wordmark and the AI AUTOMATION CONSULTANCY eyebrow on
+// the live site inherit from `body { font-family: "DM Sans" }` with
+// `font-weight: 500` set on both .wordmark and .eyebrow rules. One file.
 const targets = [
-  { family: "Instrument Serif", file: "InstrumentSerif-Regular.ttf" },
-  { family: "Inter", file: "Inter-Regular.ttf" },
+  { family: "DM Sans", weight: 500, file: "DMSans-Medium.ttf" },
 ];
 
 for (const t of targets) {
-  process.stdout.write(`fetching ${t.family}... `);
-  const { buf, url } = await downloadTtf(t.family);
+  process.stdout.write(`fetching ${t.family} ${t.weight}... `);
+  const { buf, url } = await downloadTtf(t.family, t.weight);
   await writeFile(resolve(fontsDir, t.file), buf);
   console.log(`${(buf.length / 1024).toFixed(1)} kB`);
   console.log(`  source: ${url}`);

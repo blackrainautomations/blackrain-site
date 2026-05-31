@@ -15,8 +15,9 @@ import { fileURLToPath } from "node:url";
 const here = dirname(fileURLToPath(import.meta.url));
 const root = resolve(here, "..");
 
-const instrumentSerif = await readFile(resolve(here, "fonts/InstrumentSerif-Regular.ttf"));
-const inter = await readFile(resolve(here, "fonts/Inter-Regular.ttf"));
+// Both the wordmark (.wordmark) and the subtitle (.eyebrow) on the live site
+// inherit DM Sans from body and set font-weight: 500. One file covers both.
+const dmSans = await readFile(resolve(here, "fonts/DMSans-Medium.ttf"));
 const droplet = await readFile(resolve(root, "public/assets/droplet.png"));
 const dropletDataUrl = `data:image/png;base64,${droplet.toString("base64")}`;
 
@@ -46,7 +47,8 @@ const tree = {
         type: "div",
         props: {
           style: {
-            fontFamily: "Instrument Serif",
+            fontFamily: "DM Sans",
+            fontWeight: 500,
             fontSize: 84,
             color: "#0a0a0a",
             letterSpacing: 16.8,
@@ -60,7 +62,8 @@ const tree = {
         type: "div",
         props: {
           style: {
-            fontFamily: "Inter",
+            fontFamily: "DM Sans",
+            fontWeight: 500,
             fontSize: 22,
             color: "#a1a1aa",
             letterSpacing: 7.7,
@@ -77,8 +80,7 @@ const svg = await satori(tree, {
   width: 1200,
   height: 630,
   fonts: [
-    { name: "Instrument Serif", data: instrumentSerif, weight: 400, style: "normal" },
-    { name: "Inter", data: inter, weight: 400, style: "normal" },
+    { name: "DM Sans", data: dmSans, weight: 500, style: "normal" },
   ],
 });
 
