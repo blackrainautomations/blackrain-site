@@ -1,10 +1,24 @@
 /**
- * Generate the 1200×630 OG image as a direct copy of the site's business-card hero.
- * Uses Satori (JSX/CSS → SVG) + @resvg/resvg-js (SVG → PNG) with the real
- * Instrument Serif + Inter TTFs from scripts/fonts/ so the wordmark + subtitle
- * render exactly as on the live site, not in a Times/Arial fallback.
+ * Generate the 1200×630 OG image as a TRUE proportional copy of the live
+ * site's hero card (the BLACKRAIN business-card screen).
  *
- * Re-run download-fonts.mjs if you ever delete scripts/fonts/.
+ * Proportions are derived directly from src/styles.css and scaled uniformly:
+ *
+ *   live site (at desktop, body font-size 17px):
+ *     .hero-droplet               height:    58px      margin-bottom: 25.5px  (1.5rem)
+ *     .hero-card .wordmark        font-size: 22.95px   margin-bottom: 14.45px (0.85rem)
+ *                                 letter-spacing: 0.32em
+ *     .eyebrow                    font-size: 12.24px   margin: 0
+ *                                 letter-spacing: 0.2em
+ *
+ *   OG scale factor: 2.4×
+ *     droplet height:  140  | wordmark size:  55  | eyebrow size:  29
+ *     gap below drop:   61  | gap below word:  35
+ *     wordmark tracking: 17.6 (55 × 0.32em)  | eyebrow tracking: 5.8 (29 × 0.2em)
+ *
+ * The subtitle ends up visually wider than the wordmark — same as on the live
+ * site — because it has 24 characters vs the wordmark's 9, not because of
+ * heavier tracking. Character count drives apparent width.
  */
 import satori from "satori";
 import { Resvg } from "@resvg/resvg-js";
@@ -15,11 +29,16 @@ import { fileURLToPath } from "node:url";
 const here = dirname(fileURLToPath(import.meta.url));
 const root = resolve(here, "..");
 
-// Both the wordmark (.wordmark) and the subtitle (.eyebrow) on the live site
-// inherit DM Sans from body and set font-weight: 500. One file covers both.
+// Both .wordmark and .eyebrow on the live site inherit body's DM Sans and set
+// font-weight: 500. One file covers both.
 const dmSans = await readFile(resolve(here, "fonts/DMSans-Medium.ttf"));
 const droplet = await readFile(resolve(root, "public/assets/droplet.png"));
 const dropletDataUrl = `data:image/png;base64,${droplet.toString("base64")}`;
+
+// Droplet source is 218×436 (1:2 aspect). Width derived from target height
+// (140) to preserve the .hero-droplet { height: 58px; width: auto } behaviour.
+const DROPLET_H = 140;
+const DROPLET_W = 70;
 
 const tree = {
   type: "div",
@@ -38,9 +57,9 @@ const tree = {
         type: "img",
         props: {
           src: dropletDataUrl,
-          width: 80,
-          height: 160,
-          style: { marginBottom: 50 },
+          width: DROPLET_W,
+          height: DROPLET_H,
+          style: { marginBottom: 61 },
         },
       },
       {
@@ -49,11 +68,14 @@ const tree = {
           style: {
             fontFamily: "DM Sans",
             fontWeight: 500,
-            fontSize: 84,
+            fontSize: 55,
             color: "#0a0a0a",
-            letterSpacing: 16.8,
+            letterSpacing: 17.6,
             lineHeight: 1,
-            marginBottom: 22,
+            marginBottom: 35,
+            // .wordmark applies padding-left: 0.32em "to nudge back for optical
+            // centering" against trailing letter-spacing; mirror it here.
+            paddingLeft: 17.6,
           },
           children: "BLACKRAIN",
         },
@@ -64,9 +86,9 @@ const tree = {
           style: {
             fontFamily: "DM Sans",
             fontWeight: 500,
-            fontSize: 22,
+            fontSize: 29,
             color: "#a1a1aa",
-            letterSpacing: 7.7,
+            letterSpacing: 5.8,
             lineHeight: 1,
           },
           children: "AI AUTOMATION CONSULTANCY",
