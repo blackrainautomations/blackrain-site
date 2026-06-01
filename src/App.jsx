@@ -436,7 +436,7 @@ function Footer() {
         <div className="footer-bottom">
           <hr className="divider" />
           <div className="footer-legal">
-            <p className="copy">© 2026 Blackrain LLC. Built in Connecticut.</p>
+            <p className="copy">© 2026 BlackRain Automations LLC. Built in Connecticut.</p>
             <nav className="legal-links" aria-label="Legal">
               <a href="/terms-of-service.html">Terms of Service</a>
               <a href="/privacy-policy.html">Privacy Policy</a>
