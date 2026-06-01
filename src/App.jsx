@@ -395,13 +395,11 @@ function Consult() {
           </p>
         </div>
         <div className="cal-embed reveal">
-          {/* CAL.COM EMBED — to be restored; button mails for now */}
-          <p className="ph-note">Email or book — both reach me directly.</p>
           <div className="cta-with-sub">
-            <a className="cta cal-fallback-btn" data-magnetic href="mailto:ryan@blackrainautomations.com?subject=Booking%20my%20Blackrain%20Blueprint&body=Hi%20Ryan%2C%20I%27d%20like%20to%20book%20the%20%24999%20Blueprint.%20My%20business%3A%20">
+            <a className="cta cal-fallback-btn" data-magnetic href="https://cal.com/blackrain/blueprint" target="_blank" rel="noopener noreferrer">
               <span className="label">Let’s begin.</span>
             </a>
-            <p className="cta-sub">$999 blueprint, credited to any build.</p>
+            <p className="cta-sub">Booking is paid: $999, credited to any build.</p>
           </div>
         </div>
       </div>
