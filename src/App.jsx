@@ -232,7 +232,7 @@ function HeroMessage() {
       </CharReveal>
       <div className="hero-body reveal" style={delay(0.08)}>
         <p>
-          AI is everywhere. AI done well is not. Most use it for the smallest things — a subject line, a meeting summary — and stop there. A smaller number have done the quieter, harder work, and built it into how the business operates. Their margins compound, and the distance widens every quarter. <a className="hero-cite cite-em" href="https://hai.stanford.edu/ai-index/2026-ai-index-report" target="_blank" rel="noopener noreferrer">(Stanford AI Index 2026.)</a>
+          AI is everywhere. AI done well is not. Most use it for the smallest things — a subject line, a meeting summary — and stop there. A smaller number have done the quieter, harder work, and built it into how the business operates. Their margins compound. The distance widens every quarter. <a className="hero-cite cite-em" href="https://hai.stanford.edu/ai-index/2026-ai-index-report" target="_blank" rel="noopener noreferrer">(Stanford AI Index 2026.)</a>
         </p>
         <p>
           Blackrain is built for the smaller number — custom, project-based, paid back in weeks.
@@ -324,9 +324,9 @@ function WhatWeBuild() {
 /* ============================================================ */
 const STEPS = [
   { n: "01", title: "The discovery call.", timing: "~45 minutes, remote.",
-    body: "A recorded conversation about how your business runs. We walk through where your time goes, where the friction lives, what’s already wired and what isn’t. No pitch, no software demo — just a careful look." },
+    body: "A recorded conversation about how your business runs. We walk through where the money comes from, where your time goes, where the friction lives, what’s already wired and what isn’t. No pitch, no software demo — just a careful look." },
   { n: "02", title: "The written report.", timing: "Delivered within seven days.",
-    body: "A formal report: the highest-ROI automation opportunities, a recommended tool stack, the implementation roadmap, and rough pricing for each. Built from the call transcript, not a template." },
+    body: "A formal report: the revenue plays, the time-savings plays, and the compound plays that do both — each with cost, ROI math, and timeline. Built from the call transcript, not a template." },
   { n: "03", title: "The closing call.", timing: "~20 minutes, remote.",
     body: "We walk you through the findings. From there, three paths: build the top priority with us, build it yourself with the roadmap, or build nothing. The report is yours either way." },
 ];
@@ -507,7 +507,7 @@ function TheMoment() {
         <p className="moment-eyebrow">The Arrival</p>
         <CharReveal as="h2" className="moment-h">The infrastructure has arrived.</CharReveal>
         <p className="moment-body">
-          On May 13, 2026, Anthropic introduced Claude for Small Business: fifteen workflows for the work that quietly eats small operators — invoice chasing, lead triage, payroll planning, month-end close. The models underneath are all 2026 — Opus 4.8 (May 28), Sonnet 4.6, GPT-5.4, Gemini 3.1. The economics are no longer speculative: every dollar invested returns <span className="tnum">$3.50</span>, with first real return inside sixty days.
+          On May 13, 2026, Anthropic introduced Claude for Small Business: fifteen workflows for the work that quietly eats small operators — invoice chasing, lead follow-up, outbound campaigns, month-end close. The models underneath are all 2026 — Opus 4.8 (May 28), Sonnet 4.6, GPT-5.4, Gemini 3.1. The economics are no longer speculative: every dollar invested returns <span className="tnum">$3.50</span>, with first real return inside sixty days.
         </p>
         <a className="arrival-link" href="#pricing">
           <span className="al-label">See pricing</span>
