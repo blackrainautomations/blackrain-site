@@ -396,7 +396,8 @@ function Consult() {
         </div>
         <div className="cta-with-sub reveal">
           <a className="cta-pill" data-magnetic href="https://cal.com/blackrain/blueprint" target="_blank" rel="noopener noreferrer">
-            Let’s begin.
+            <span className="text">Let’s <em>begin.</em></span>
+            <span className="arrow" aria-hidden="true">→</span>
           </a>
           <p className="cta-sub">Booking is paid: $999, credited to any build.</p>
         </div>
