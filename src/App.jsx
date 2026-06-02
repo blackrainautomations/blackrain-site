@@ -388,19 +388,17 @@ function Consult() {
     <section className="section consult" id="diagnostic">
       <div className="container">
         <div className="reveal">
-          <ScrollText as="h2" text="Book below." />
+          <ScrollText as="h2" text="Book your blueprint." />
           <p className="sub">
             A paid, written walk through your operation. Yours to keep,
             credited to any build.
           </p>
         </div>
-        <div className="cal-embed reveal">
-          <div className="cta-with-sub">
-            <a className="cta cal-fallback-btn" data-magnetic href="https://cal.com/blackrain/blueprint" target="_blank" rel="noopener noreferrer">
-              <span className="label">Let’s begin.</span>
-            </a>
-            <p className="cta-sub">Booking is paid: $999, credited to any build.</p>
-          </div>
+        <div className="cta-with-sub reveal">
+          <a className="cta" data-magnetic href="https://cal.com/blackrain/blueprint" target="_blank" rel="noopener noreferrer">
+            <span className="label">Let’s begin.</span>
+          </a>
+          <p className="cta-sub">Booking is paid: $999, credited to any build.</p>
         </div>
       </div>
     </section>
