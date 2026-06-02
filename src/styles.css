@@ -500,14 +500,14 @@ p { margin: 0; }
   .cta { transition: color 0.2s var(--ease); }
 }
 
-/* ---- thin-border pill (primary conversion CTA — Cartier-restrained, hover inverts) ---- */
+/* ---- primary conversion CTA — solid black, hard corners, subtle hover lift ---- */
 .cta-pill {
   display: inline-block;
   padding: 0.875rem 2.25rem;
   border: 1px solid #0a0a0a;
   border-radius: 0;
-  background: transparent;
-  color: #0a0a0a;
+  background: #0a0a0a;
+  color: #ffffff;
   font: inherit;
   font-size: 1.0625rem;
   font-weight: 500;
@@ -517,7 +517,7 @@ p { margin: 0; }
   cursor: pointer;
   transition: background 200ms ease, color 200ms ease;
 }
-.cta-pill:hover { background: #0a0a0a; color: #ffffff; }
+.cta-pill:hover { background: #1a1a1a; color: #ffffff; }
 @media (prefers-reduced-motion: reduce) {
   .cta-pill { transition: background 200ms ease, color 200ms ease; }
 }
