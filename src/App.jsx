@@ -388,7 +388,7 @@ function Consult() {
     <section className="section consult" id="diagnostic">
       <div className="container">
         <div className="reveal">
-          <ScrollText as="h2" text="Book your blueprint." />
+          <ScrollText as="h2" text="Book below." />
           <p className="sub">
             A paid, written walk through your operation. Yours to keep,
             credited to any build.
