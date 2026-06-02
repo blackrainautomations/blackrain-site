@@ -1006,46 +1006,82 @@ p { margin: 0; }
 .cal-embed .ph-note { color: var(--text-2); font-style: italic; font-size: 0.9rem; max-width: 38ch; text-align: center; }
 
 /* ============================================================
-   FOOTER
+   FOOTER — vertical stack, sectioned hierarchy, tight rhythm
    ============================================================ */
-.site-footer { padding: clamp(3.5rem, 7vw, 5rem) 0 2.5rem; }
-.footer-top {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr 1.4fr;
-  gap: 2.5rem;
-  align-items: start;
+.site-footer { padding: clamp(3rem, 6vw, 4rem) 0 2.25rem; }
+
+.footer-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
-.footer-brand .lockup { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.9rem; }
+
+.footer-brand .lockup { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; }
 .footer-brand .lockup img { height: 30px; width: auto; }
 .footer-brand .lockup .wordmark { font-size: 1rem; }
-.footer-brand .tagline { color: var(--text-2); font-size: 0.95rem; }
-.footer-nav { display: flex; flex-direction: column; gap: 0.7rem; }
-.footer-nav a { text-decoration: none; color: var(--text-2); font-size: 0.95rem; transition: color 0.2s var(--ease); width: fit-content; }
-.footer-nav a:hover { color: var(--text); }
-.footer-contact { display: flex; flex-direction: column; gap: 0.7rem; }
-.footer-contact a, .footer-contact span { color: var(--text-2); font-size: 0.95rem; text-decoration: none; transition: color 0.2s var(--ease); }
-.footer-contact a:hover { color: var(--text); }
-.footer-contact .li-link { display: inline-flex; align-items: center; gap: 0.45rem; width: fit-content; }
-.footer-bottom { margin-top: clamp(2.5rem, 5vw, 3.5rem); }
-.footer-bottom .copy { color: var(--text-2); font-size: 0.82rem; margin: 0; }
-.footer-legal {
-  margin-top: 1.8rem;
+.footer-brand .tagline { color: var(--text-2); font-size: 0.95rem; margin: 0; }
+
+.footer-section { display: flex; flex-direction: column; gap: 0.5rem; }
+.footer-section-title {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-2);
+  margin: 0;
+}
+
+.footer-inline-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem 1.5rem;
   align-items: center;
-  justify-content: space-between;
+  gap: 0.4rem 0.6rem;
+  color: var(--text-2);
+  font-size: 0.95rem;
 }
-.footer-legal .legal-links { display: flex; gap: 1.5rem; }
+.footer-inline-row a {
+  color: var(--text-2);
+  text-decoration: none;
+  transition: color 0.2s var(--ease);
+}
+.footer-inline-row a:hover { color: var(--text); }
+.footer-inline-row .sep { opacity: 0.5; user-select: none; }
+
+.footer-rule {
+  border: 0;
+  height: 1px;
+  width: 100%;
+  background: var(--text-2);
+  opacity: 0.2;
+  margin: 0;
+}
+
+.footer-legal {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.8125rem;
+  color: var(--text-2);
+}
+.footer-legal .copy { margin: 0; }
+.footer-legal .legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.6rem;
+}
 .footer-legal .legal-links a {
   color: var(--text-2);
-  font-size: 0.82rem;
   text-decoration: none;
   transition: color 0.2s var(--ease);
 }
 .footer-legal .legal-links a:hover { color: var(--text); }
-@media (max-width: 560px) {
-  .footer-legal { flex-direction: column; align-items: center; text-align: center; }
+.footer-legal .legal-links .sep { opacity: 0.5; user-select: none; }
+
+/* narrow-screen: contact row stacks (phone + email each on their own line) */
+@media (max-width: 400px) {
+  .footer-inline-row { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+  .footer-inline-row .sep { display: none; }
 }
 
 /* ============================================================
@@ -1084,7 +1120,6 @@ p { margin: 0; }
   .feature-preview { min-height: 200px; }
   .timeline { grid-template-columns: 1fr; gap: 2.25rem; }
   .timeline-line { display: none; }
-  .footer-top { grid-template-columns: 1fr; gap: 2.25rem; }
 }
 @media (max-width: 560px) {
   body { font-size: 16px; }
