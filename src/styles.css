@@ -505,7 +505,7 @@ p { margin: 0; }
   display: inline-block;
   padding: 0.875rem 2.25rem;
   border: 1px solid #0a0a0a;
-  border-radius: 999px;
+  border-radius: 0;
   background: transparent;
   color: #0a0a0a;
   font: inherit;
