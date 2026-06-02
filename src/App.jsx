@@ -396,7 +396,7 @@ function Consult() {
         </div>
         <div className="cta-with-sub reveal">
           <a className="cta-pill" data-magnetic href="https://cal.com/blackrain/blueprint" target="_blank" rel="noopener noreferrer">
-            <span className="text">Let’s <em>begin.</em></span>
+            <span className="text">Let’s begin.</span>
             <span className="arrow" aria-hidden="true">→</span>
           </a>
           <p className="cta-sub">Booking is paid: $999, credited to any build.</p>
@@ -411,34 +411,36 @@ function Footer() {
   return (
     <footer className="site-footer">
       <div className="container footer-stack">
-        <div className="footer-brand">
-          <div className="lockup">
-            <img src={DROPLET} alt="" />
-            <span className="wordmark">Blackrain</span>
+        <div className="footer-cols">
+          <div className="footer-brand">
+            <div className="lockup">
+              <img src={DROPLET} alt="" />
+              <span className="wordmark">Blackrain</span>
+            </div>
+            <p className="tagline">AI automations, custom-built.</p>
           </div>
-          <p className="tagline">AI automations, custom-built.</p>
-        </div>
 
-        <div className="footer-section">
-          <h4 className="footer-section-title">Navigate</h4>
-          <nav className="footer-inline-row" aria-label="Footer">
-            <a href="#top">Home</a>
-            <span className="sep" aria-hidden="true">·</span>
-            <a href="#how-it-works">Process</a>
-            <span className="sep" aria-hidden="true">·</span>
-            <a href="#pricing">Pricing</a>
-            <span className="sep" aria-hidden="true">·</span>
-            <a href="#diagnostic">Begin</a>
-          </nav>
-        </div>
+          <div className="footer-section">
+            <h4 className="footer-section-title">Navigate</h4>
+            <nav className="footer-inline-row" aria-label="Footer">
+              <a href="#top">Home</a>
+              <span className="sep" aria-hidden="true">·</span>
+              <a href="#how-it-works">Process</a>
+              <span className="sep" aria-hidden="true">·</span>
+              <a href="#pricing">Pricing</a>
+              <span className="sep" aria-hidden="true">·</span>
+              <a href="#diagnostic">Begin</a>
+            </nav>
+          </div>
 
-        <div className="footer-section">
-          <h4 className="footer-section-title">Contact</h4>
-          <div className="footer-inline-row">
-            <a href="tel:18608032795">860.803.2795</a>
-            <span className="sep" aria-hidden="true">·</span>
-            <a href="mailto:ryan@blackrainautomations.com">ryan@blackrainautomations.com</a>
-            {/* TODO: <a href={LINKEDIN_URL}>...</a> once profile URL is finalized */}
+          <div className="footer-section">
+            <h4 className="footer-section-title">Contact</h4>
+            <div className="footer-inline-row">
+              <a href="tel:18608032795">860.803.2795</a>
+              <span className="sep" aria-hidden="true">·</span>
+              <a href="mailto:ryan@blackrainautomations.com">ryan@blackrainautomations.com</a>
+              {/* TODO: <a href={LINKEDIN_URL}>...</a> once profile URL is finalized */}
+            </div>
           </div>
         </div>
 
