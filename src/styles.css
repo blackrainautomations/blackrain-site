@@ -514,6 +514,7 @@ p { margin: 0; }
   font-size: 1.0625rem;
   font-weight: 500;
   letter-spacing: -0.01em;
+  text-indent: -0.04em;
   font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "ss01" 1;
   text-align: center;
   text-decoration: none;
