@@ -255,22 +255,6 @@ h1, h2, h3 {
 .menu-list li:last-child { border-bottom: 0; }
 .adjacent { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.6rem; }
 .adjacent li { border: 1px solid var(--line); border-radius: 999px; padding: 0.5rem 1.05rem; font-size: 0.88rem; color: var(--ink); }
-
-/* --- book CTA: same drifting aura as splash + Sora heading (added 2026-06-21) --- */
-.consult-inner { isolation: isolate; }
-.consult-inner::after {
-  content: ""; position: absolute; inset: -20%; z-index: -1; pointer-events: none;
-  background:
-    radial-gradient(50% 50% at 16% 20%, rgba(59,130,246,.22), transparent 72%),
-    radial-gradient(52% 52% at 84% 26%, rgba(139,92,246,.20), transparent 72%),
-    radial-gradient(55% 55% at 22% 82%, rgba(45,212,191,.16), transparent 72%),
-    radial-gradient(52% 52% at 80% 80%, rgba(59,130,246,.18), transparent 72%),
-    radial-gradient(48% 48% at 52% 50%, rgba(139,92,246,.13), transparent 74%);
-  filter: blur(30px);
-  animation: splashAura 24s ease-in-out infinite alternate;
-}
-.consult h2 { font-family: "Sora", sans-serif; }
-@media (prefers-reduced-motion: reduce) { .consult-inner::after { animation: none; } }
 .splash-wordmark {
   font-family: "Sora", "Segoe UI", -apple-system, Helvetica, Arial, sans-serif;
   font-weight: 600; font-size: clamp(1.8rem, 6vw, 3.2rem);
