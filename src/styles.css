@@ -251,6 +251,10 @@ h1, h2, h3 {
   font-family: "Mr De Haviland", cursive; color: var(--ink);
   font-size: clamp(2.15rem, 6.2vw, 3.05rem); line-height: 1; margin: 1.7rem 0 0; animation-delay: 0.75s;
 }
+.splash-role {
+  text-transform: uppercase; letter-spacing: 0.22em; font-size: 0.68rem;
+  color: var(--muted); margin: 0.55rem 0 0; animation-delay: 0.85s;
+}
 
 /* --- all-inclusive menu (added 2026-06-21) --- */
 .menu-intro { color: var(--muted); max-width: 620px; margin: 0.9rem auto 0; }
