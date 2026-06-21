@@ -419,7 +419,7 @@ function Splash() {
           <a href="https://blackrainautomations.com" target="_blank" rel="noopener noreferrer">blackrainautomations.com</a>
         </div>
         <p className="splash-sig">Ryan Kirchberger</p>
-        <p className="splash-role">Ryan Kirchberger &middot; Founder</p>
+        <p className="splash-role">Founder</p>
       </div>
       <div className="scroll-cue" aria-hidden="true"><span>Scroll</span><span className="chev" /></div>
     </section>
