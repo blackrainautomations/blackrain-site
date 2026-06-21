@@ -6,18 +6,42 @@ const Svg = ({ size = 24, sw = 2, children, ...p }) => (
        stroke="currentColor" strokeWidth={sw} strokeLinecap="round"
        strokeLinejoin="round" {...p}>{children}</svg>
 );
-const MessageSquare = (p) => <Svg {...p}><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></Svg>;
-const BarChart3 = (p) => <Svg {...p}><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></Svg>;
-const Calendar = (p) => <Svg {...p}><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 2v4"/><path d="M16 2v4"/></Svg>;
-const Check = (p) => <Svg size={16} {...p}><path d="M20 6 9 17l-5-5"/></Svg>;
+const Zap = (p) => <Svg {...p}><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></Svg>;
+const Repeat = (p) => <Svg {...p}><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></Svg>;
+const Clock = (p) => <Svg {...p}><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></Svg>;
 
-const DROPLET = "/assets/droplet.png";
+/* ---------- social brand icons ---------- */
+const Instagram = (p) => <Svg {...p}><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></Svg>;
+const Facebook = (p) => <Svg {...p}><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></Svg>;
+const Linkedin = (p) => <Svg {...p}><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></Svg>;
+const XLogo = ({ size = 24, ...p }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...p}>
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+  </svg>
+);
+const Youtube = (p) => <Svg {...p}><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></Svg>;
+const Tiktok = ({ size = 24, ...p }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...p}>
+    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.43 3.98-2.11 6.15-1.7.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+  </svg>
+);
+const SOCIALS = [
+  { Icon: Instagram, label: "Instagram", href: "#" },
+  { Icon: Facebook, label: "Facebook", href: "#" },
+  { Icon: XLogo, label: "X", href: "#" },
+  { Icon: Linkedin, label: "LinkedIn", href: "#" },
+  { Icon: Youtube, label: "YouTube", href: "#" },
+  { Icon: Tiktok, label: "TikTok", href: "#" },
+];
 
-/* ---------- scroll reveal: alternating slide-in, bidirectional, re-triggering ---------- */
+/* booking links */
+const AUDIT_URL = "https://cal.com/blackrain/audit";        // free 15-min audit — TODO: confirm real Cal.com slug
+const BLUEPRINT_URL = "https://cal.com/blackrain/blueprint"; // paid $999 Blueprint
+
+/* ---------- scroll reveal: alternating slide-in, re-triggering ---------- */
 function useReveal() {
   useEffect(() => {
-    // assign alternating slide direction per section (top-to-bottom)
-    const scopes = document.querySelectorAll("main section:not(.hero-card), footer");
+    const scopes = document.querySelectorAll("main section:not(.hero), footer");
     const tracked = [];
     scopes.forEach((scope) => {
       scope.querySelectorAll(".reveal").forEach((el, i) => {
@@ -27,17 +51,14 @@ function useReveal() {
         tracked.push(el);
       });
     });
-
     const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) { tracked.forEach((e) => e.classList.add("in")); return; }
-
     let raf = null;
     const check = () => {
       raf = null;
       const vh = window.innerHeight;
       tracked.forEach((el) => {
         const r = el.getBoundingClientRect();
-        // revealed once ~14% has entered from the bottom; hides again past the top
         const visible = r.top < vh * 0.86 && r.bottom > vh * 0.14;
         el.classList.toggle("in", visible);
       });
@@ -54,17 +75,14 @@ function useReveal() {
   }, []);
 }
 
-/* small util: stagger delay style */
 const delay = (s) => ({ transitionDelay: `${s}s` });
 
-/* ---------- subtle magnetic pull on [data-magnetic] elements ---------- */
+/* ---------- subtle magnetic pull on [data-magnetic] ---------- */
 function useMagnetic() {
   useEffect(() => {
     if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    if (window.matchMedia && window.matchMedia("(pointer: coarse)").matches) return; // skip touch
-    const RADIUS = 80;   // activation distance from element center
-    const MAX = 6;       // max displacement in px — quiet whisper
-    const STRENGTH = 0.14;
+    if (window.matchMedia && window.matchMedia("(pointer: coarse)").matches) return;
+    const RADIUS = 90, MAX = 7, STRENGTH = 0.16;
     let raf = null;
     const onMove = (e) => {
       if (raf) return;
@@ -72,10 +90,8 @@ function useMagnetic() {
         raf = null;
         document.querySelectorAll("[data-magnetic]").forEach((el) => {
           const r = el.getBoundingClientRect();
-          const cx = r.left + r.width / 2;
-          const cy = r.top + r.height / 2;
-          const dx = e.clientX - cx;
-          const dy = e.clientY - cy;
+          const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+          const dx = e.clientX - cx, dy = e.clientY - cy;
           const dist = Math.hypot(dx, dy);
           if (dist < RADIUS) {
             const tx = Math.max(-MAX, Math.min(MAX, dx * STRENGTH));
@@ -92,7 +108,7 @@ function useMagnetic() {
   }, []);
 }
 
-/* ---------- scroll-driven character reveal (adapted AnimatedText) ---------- */
+/* ---------- scroll-driven character reveal ---------- */
 function ScrollText({ text, as = "h2", className }) {
   const ref = useRef(null);
   useEffect(() => {
@@ -105,9 +121,8 @@ function ScrollText({ text, as = "h2", className }) {
       raf = null;
       const r = el.getBoundingClientRect();
       const vh = window.innerHeight;
-      // 0 when the line sits low in the viewport, 1 once it has risen past the middle
       const p = Math.max(0, Math.min(1, (vh * 0.85 - r.top) / (vh * 0.5 + r.height)));
-      const sweep = p * (n + 6); // small buffer so it completes before fully scrolled
+      const sweep = p * (n + 6);
       chars.forEach((c, i) => {
         const t = Math.max(0, Math.min(1, sweep - i));
         c.style.opacity = (0.16 + 0.84 * t).toFixed(3);
@@ -133,7 +148,7 @@ function ScrollText({ text, as = "h2", className }) {
   );
 }
 
-/* ---------- char reveal that preserves inner markup (.tnum, .hl) ---------- */
+/* ---------- char reveal preserving inner markup (.tnum, .hl) ---------- */
 function CharReveal({ as = "h2", className, children }) {
   const ref = useRef(null);
   useEffect(() => {
@@ -182,6 +197,166 @@ function CharReveal({ as = "h2", className, children }) {
   return <El ref={ref} className={className}>{children}</El>;
 }
 
+/* ---------- top scroll-progress bar ---------- */
+function ScrollProgress() {
+  const ref = useRef(null);
+  useEffect(() => {
+    let raf = null;
+    const update = () => {
+      raf = null;
+      const h = document.documentElement;
+      const max = h.scrollHeight - h.clientHeight;
+      const p = max > 0 ? h.scrollTop / max : 0;
+      if (ref.current) ref.current.style.width = (p * 100).toFixed(2) + "%";
+    };
+    const on = () => { if (!raf) raf = requestAnimationFrame(update); };
+    update();
+    window.addEventListener("scroll", on, { passive: true });
+    window.addEventListener("resize", on, { passive: true });
+    return () => { window.removeEventListener("scroll", on); window.removeEventListener("resize", on); if (raf) cancelAnimationFrame(raf); };
+  }, []);
+  return <div className="scroll-progress" aria-hidden="true"><i ref={ref} /></div>;
+}
+
+/* ---------- interactive rain — the brand signature ----------
+   Site-wide faint rain; drops part around the cursor, ripples on click/tap.
+   Canvas for smoothness on mobile; off for reduced-motion. */
+function RainField() {
+  const ref = useRef(null);
+  useEffect(() => {
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const canvas = ref.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    const coarse = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
+    let w = 0, h = 0, dpr = 1, drops = [], ripples = [], raf = null, last = 0;
+    const pointer = { x: -9999, y: -9999 };
+
+    const mkDrop = () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      len: 7 + Math.random() * 13,
+      vy: 240 + Math.random() * 280,
+      vx: 6 + Math.random() * 10,
+      th: Math.random() < 0.5 ? 0.7 : 1.1,
+      a: 0.06 + Math.random() * 0.1,
+    });
+
+    const resize = () => {
+      dpr = Math.min(2, window.devicePixelRatio || 1);
+      w = window.innerWidth; h = window.innerHeight;
+      canvas.width = w * dpr; canvas.height = h * dpr;
+      canvas.style.width = w + "px"; canvas.style.height = h + "px";
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const count = Math.round(Math.min(130, w / (coarse ? 13 : 8)));
+      drops = Array.from({ length: count }, mkDrop);
+    };
+
+    const step = (t) => {
+      const dt = Math.min(0.05, last ? (t - last) / 1000 : 0); last = t;
+      ctx.clearRect(0, 0, w, h);
+      ctx.lineCap = "round";
+      for (const d of drops) {
+        const dx = d.x - pointer.x, dy = d.y - pointer.y;
+        const dist2 = dx * dx + dy * dy;
+        if (dist2 < 9000) {
+          const f = (9000 - dist2) / 9000;
+          d.x += (dx >= 0 ? 1 : -1) * f * 2.6;
+        }
+        d.x += d.vx * dt;
+        d.y += d.vy * dt;
+        if (d.y > h + d.len) { d.y = -d.len; d.x = Math.random() * w; }
+        if (d.x > w + 4) d.x = -4;
+        ctx.strokeStyle = `rgba(74, 78, 86, ${d.a})`;
+        ctx.lineWidth = d.th;
+        ctx.beginPath();
+        ctx.moveTo(d.x, d.y);
+        ctx.lineTo(d.x - d.vx * 0.03, d.y - d.len);
+        ctx.stroke();
+      }
+      for (let i = ripples.length - 1; i >= 0; i--) {
+        const r = ripples[i];
+        r.t += dt;
+        const p = r.t / 0.7;
+        if (p >= 1) { ripples.splice(i, 1); continue; }
+        ctx.strokeStyle = `rgba(70, 74, 82, ${0.4 * (1 - p)})`;
+        ctx.lineWidth = 1.2;
+        ctx.beginPath();
+        ctx.arc(r.x, r.y, p * 46, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+      raf = requestAnimationFrame(step);
+    };
+
+    const onMove = (e) => { pointer.x = e.clientX; pointer.y = e.clientY; };
+    const onLeave = () => { pointer.x = -9999; pointer.y = -9999; };
+    const onDown = (e) => {
+      const x = e.touches ? e.touches[0].clientX : e.clientX;
+      const y = e.touches ? e.touches[0].clientY : e.clientY;
+      ripples.push({ x, y, t: 0 });
+      if (ripples.length > 8) ripples.shift();
+    };
+
+    resize();
+    raf = requestAnimationFrame(step);
+    window.addEventListener("resize", resize);
+    if (!coarse) window.addEventListener("mousemove", onMove, { passive: true });
+    window.addEventListener("mouseout", onLeave);
+    window.addEventListener("pointerdown", onDown, { passive: true });
+    return () => {
+      if (raf) cancelAnimationFrame(raf);
+      window.removeEventListener("resize", resize);
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("mouseout", onLeave);
+      window.removeEventListener("pointerdown", onDown);
+    };
+  }, []);
+  return <canvas className="rainfield" ref={ref} aria-hidden="true" />;
+}
+
+/* ---------- cycling headline word ---------- */
+const HERO_PHRASES = ["more booked.", "more profit.", "more done.", "more visible."];
+function CycleWord() {
+  const [i, setI] = useState(0);
+  const [out, setOut] = useState(false);
+  useEffect(() => {
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let t = null;
+    const id = setInterval(() => {
+      setOut(true);
+      t = setTimeout(() => { setI((v) => (v + 1) % HERO_PHRASES.length); setOut(false); }, 350);
+    }, 2800);
+    return () => { clearInterval(id); if (t) clearTimeout(t); };
+  }, []);
+  return <span className={"accent cycle" + (out ? " out" : "")}>{HERO_PHRASES[i]}</span>;
+}
+
+/* ---------- count-up number (animates when scrolled into view) ---------- */
+function CountUp({ end, prefix = "", suffix = "", className = "" }) {
+  const ref = useRef(null);
+  const [val, setVal] = useState(0);
+  useEffect(() => {
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) { setVal(end); return; }
+    const el = ref.current;
+    if (!el) return;
+    let raf = null, start = null, ran = false;
+    const dur = 1100;
+    const step = (t) => {
+      if (start === null) start = t;
+      const p = Math.min(1, (t - start) / dur);
+      const eased = 1 - Math.pow(1 - p, 3);
+      setVal(Math.round(eased * end));
+      if (p < 1) raf = requestAnimationFrame(step);
+    };
+    const io = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !ran) { ran = true; raf = requestAnimationFrame(step); io.disconnect(); }
+    }, { threshold: 0.4 });
+    io.observe(el);
+    return () => { io.disconnect(); if (raf) cancelAnimationFrame(raf); };
+  }, [end]);
+  return <span ref={ref} className={(className ? className + " " : "") + "tnum"}>{prefix}{val}{suffix}</span>;
+}
+
 /* ============================================================ */
 function Header() {
   const [show, setShow] = useState(false);
@@ -194,15 +369,15 @@ function Header() {
   return (
     <header className={"site-header" + (show ? " visible" : "")}>
       <div className="container bar">
-        <a className="brand-lockup" href="#top" aria-label="Blackrain — home">
-          <img src={DROPLET} alt="" />
-          <span className="wordmark">Blackrain</span>
+        <a className="brand-lockup" href="#top" aria-label="BlackRain — home">
+          <span className="wordmark">Black<span className="r">Rain</span></span>
         </a>
         <nav className="header-nav">
+          <a className="nav-only" href="#what-i-build">Services</a>
           <a className="nav-only" href="#how-it-works">Process</a>
           <a className="nav-only" href="#pricing">Pricing</a>
-          <a className="cta" data-magnetic href="#diagnostic">
-            <span className="label">Book the Blueprint</span>
+          <a className="cta" data-magnetic href="#start">
+            <span className="label">Book a Free Audit</span>
             <span className="arrow">→</span>
           </a>
         </nav>
@@ -212,60 +387,203 @@ function Header() {
 }
 
 /* ============================================================ */
-function HeroCard() {
+function Splash() {
+  const inner = useRef(null);
+  useEffect(() => {
+    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+    let raf = null;
+    const update = () => {
+      raf = null;
+      const p = Math.min(1, Math.max(0, window.scrollY / (window.innerHeight * 0.85)));
+      if (inner.current) inner.current.style.opacity = String(Math.max(0, 1 - p * 1.25));
+    };
+    const on = () => { if (!raf) raf = requestAnimationFrame(update); };
+    update();
+    window.addEventListener("scroll", on, { passive: true });
+    return () => { window.removeEventListener("scroll", on); if (raf) cancelAnimationFrame(raf); };
+  }, []);
   return (
-    <section className="hero-card" id="top">
-      <img className="hero-droplet" src={DROPLET} alt="Blackrain droplet" />
-      <div className="wordmark reveal in" style={delay(0.05)}>Blackrain</div>
-      <p className="eyebrow reveal in" style={delay(0.1)}>AI Automation Consultancy</p>
+    <section className="splash" id="top">
+      <div className="splash-inner" ref={inner}>
+        <div className="splash-droplet-wrap">
+          <img className="splash-droplet" src="/assets/droplet.png" alt="BlackRain" />
+        </div>
+        <div className="splash-wordmark">BLACKRAIN</div>
+        <p className="splash-tag">AI Automation Consultancy</p>
+        <div className="splash-rule" />
+        <div className="splash-contact">
+          <a href="tel:+18608032795">860.803.2795</a>
+          <a href="mailto:ryan@blackrainautomations.com">ryan@blackrainautomations.com</a>
+          <a href="https://blackrainautomations.com" target="_blank" rel="noopener noreferrer">blackrainautomations.com</a>
+        </div>
+      </div>
+      <div className="scroll-cue" aria-hidden="true"><span>Scroll</span><span className="chev" /></div>
     </section>
   );
 }
 
-function HeroMessage() {
+function Manifesto() {
+  const near = Array.from({ length: 20 });
+  const far = Array.from({ length: 12 });
   return (
-    <section className="hero-message">
-      <p className="hero-eyebrow shimmer reveal" data-text="Briefing">Briefing</p>
-      <CharReveal as="h1" className="hero-stat">
-        <span className="hl"><span className="tnum">88%</span> use AI.</span>
-        <span className="hl">Fewer than <span className="tnum">10%</span> use it well.</span>
-      </CharReveal>
-      <div className="hero-body reveal" style={delay(0.08)}>
-        <p>
-          AI is everywhere. AI done well is not. Most use it for the smallest things — a subject line, a meeting summary — and stop there. A smaller number have done the quieter, harder work, and built it into how the business operates. Their margins compound. The distance widens every quarter. <a className="hero-cite cite-em" href="https://hai.stanford.edu/ai-index/2026-ai-index-report" target="_blank" rel="noopener noreferrer">(Stanford AI Index 2026.)</a>
-        </p>
-        <p>
-          Blackrain is built for the smaller number — custom, project-based, paid back in weeks.
-        </p>
+    <section className="manifesto" id="story">
+      <div className="rain rain-far" aria-hidden="true">
+        {far.map((_, i) => (
+          <span key={i} style={{ left: `${(i * 9 + 5) % 100}%`, animationDelay: `${(i % 5) * 0.5}s`, animationDuration: `${1.8 + (i % 3) * 0.5}s` }} />
+        ))}
       </div>
-      <div className="hero-ctas reveal" style={delay(0.12)}>
+      <div className="rain rain-near" aria-hidden="true">
+        {near.map((_, i) => (
+          <span key={i} style={{ left: `${(i * 7.3 + 2) % 100}%`, animationDelay: `${(i % 6) * 0.35}s`, animationDuration: `${0.9 + (i % 4) * 0.35}s` }} />
+        ))}
+      </div>
+      <div className="lightning" aria-hidden="true" />
+      <div className="container manifesto-inner">
+        <p className="m-eyebrow reveal"><span>A</span> <span>quiet</span> <span>word</span></p>
+        <p className="m-line big reveal">Would you like more <em>time</em> — to savor a good glass of whiskey?</p>
+        <p className="m-line big reveal">Or more <em>money</em> — to spend exactly as you please?</p>
+        <p className="m-line reveal">Old-school cool, with the times — the finest AI, built precisely for your business.</p>
+        <p className="m-quote reveal">Born in <em>Connecticut</em>, for the owner who finds his luxury in the quiet of the early-morning rain.</p>
+        <p className="m-line reveal">While the world sleeps, the morning is yours — the long bath, the slow coffee. Black Rain has the business covered.</p>
+        <p className="m-signoff reveal">Good morning.</p>
+        <a className="cta-pill m-cta reveal" data-magnetic href={AUDIT_URL} target="_blank" rel="noopener noreferrer">
+          <span className="m-cta-label">Start with a free 15-minute assessment <span className="arrow" aria-hidden="true">→</span></span>
+        </a>
+        <p className="m-cta-sub reveal">Free · fifteen minutes · no pitch.</p>
+      </div>
+    </section>
+  );
+}
+
+function Hero() {
+  return (
+    <section className="hero">
+      <div className="hero-inner">
+        <div className="hero-content">
+        <div className="hero-brand">Black<span className="r">Rain</span></div>
+        <div className="hero-divider" aria-hidden="true" />
+        <p className="hero-eyebrow">AI Automation Consultancy</p>
+        <h1 className="hero-headline">
+          AI systems that get local businesses <CycleWord />
+        </h1>
+        <p className="hero-sub">
+          Premium AI automations, custom-built for service businesses. Your leads get
+          answered in sixty seconds, your quotes never go silent, and the busywork
+          runs itself — turning inquiries into revenue, effortlessly.
+        </p>
+        <div className="hero-ctas">
+          <a className="cta-pill" data-magnetic href={AUDIT_URL} target="_blank" rel="noopener noreferrer">
+            Book a Free Audit <span className="arrow" aria-hidden="true">→</span>
+          </a>
+          <a className="cta-ghost" data-magnetic href="#how-it-works">
+            See How It Works <span className="arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+        </div>
       </div>
     </section>
   );
 }
 
 /* ============================================================ */
-const PROBLEMS = [
-  { Icon: MessageSquare, title: "Lead Follow-up",
-    body: "New leads pile up. By the time someone gets to them, half are cold. Personalized follow-up at scale doesn’t happen because nobody has the hours." },
-  { Icon: BarChart3, title: "Weekly Reporting",
-    body: "Mondays vanish to pulling numbers from five systems, formatting a deck, and writing the same story slightly different. By Tuesday you’ve already lost the week." },
-  { Icon: Calendar, title: "Meeting Prep & Follow-up",
-    body: "Walk into the meeting underprepared, walk out with action items that nobody captures. The follow-through dies in someone’s inbox." },
-];
-
-function Problem() {
+function Briefing() {
   return (
-    <section className="section" id="problem">
+    <section className="section" id="briefing">
+      <div className="container moment">
+        <div className="stat-block reveal">
+          <div className="stat-row">
+            <CountUp className="big" end={88} suffix="%" />
+            <span className="cap">of businesses now use AI.</span>
+          </div>
+          <div className="stat-rule" />
+          <div className="stat-row">
+            <CountUp className="big pink" end={10} prefix="<" suffix="%" />
+            <span className="cap">use it well enough to win.</span>
+          </div>
+        </div>
+        <div className="reveal" style={delay(0.06)}>
+          <p className="moment-eyebrow">The Briefing</p>
+          <div className="hero-body">
+            <p>
+              The ten percent aren’t smarter than you. They just did the quiet work, wired AI into how the business
+              actually runs. Now their leads get answered in sixty seconds, their quotes never go silent, and their
+              margins compound every quarter while their competitors wonder what changed.{" "}
+              <a className="hero-cite cite-em" href="https://hai.stanford.edu/ai-index/2026-ai-index-report" target="_blank" rel="noopener noreferrer">(Stanford AI Index 2026.)</a>
+            </p>
+            <p>
+              You won’t see them coming, because nothing looks different from the outside. The phone just stops ringing
+              as often. BlackRain’s job is to make sure you’re the one this happens <em>for</em> — custom systems, built
+              and run for you, paid back in weeks. The first fifteen minutes are free.
+            </p>
+          </div>
+          <div className="hero-ctas-row">
+            <a className="cta-pill" data-magnetic href={AUDIT_URL} target="_blank" rel="noopener noreferrer">
+              Book a free 15-min audit <span className="arrow" aria-hidden="true">→</span>
+            </a>
+            <a className="cta" data-magnetic href="#start">
+              <span className="label">or start the $999 Blueprint</span>
+              <span className="arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============================================================ */
+const BUILDS = [
+  { Icon: Zap, tag: "Makes you money", kind: "rev", title: "Speed-to-lead",
+    body: "A customer who calls three companies hires the one that answers first. Yours answers in sixty seconds — nights, weekends, mid-job — and books the appointment itself." },
+  { Icon: Repeat, tag: "Makes you money", kind: "rev", title: "Follow-up that never quits",
+    body: "The quote you sent Tuesday gets chased Thursday, next week, and the week after — politely, automatically, until it’s a yes or a no. Nothing goes quiet again." },
+  { Icon: Clock, tag: "Saves you time", kind: "time", title: "The busywork, handled",
+    body: "Reports that write themselves. Schedules that fill themselves. Call notes, invoices, data entry — the hours that eat your week, given back." },
+];
+function WhatIBuild() {
+  return (
+    <section className="section" id="what-i-build">
       <div className="container">
         <div className="section-head reveal">
-          <p className="eyebrow">The Problem</p>
-          <ScrollText as="h2" text="Three workflows are eating your week. You know exactly which ones." />
+          <p className="eyebrow">What I Build</p>
+          <ScrollText as="h2" text="The work that starts running itself." />
         </div>
         <div className="card-grid">
-          {PROBLEMS.map(({ Icon, title, body }, i) => (
+          {BUILDS.map(({ tag, kind, title, body }, i) => (
             <div className="card reveal" key={title} style={delay(i * 0.08)}>
-              <div className="icon"><Icon /></div>
+              <p className={"tag " + kind}>{tag}</p>
+              <h3>{title}</h3>
+              <p>{body}</p>
+            </div>
+          ))}
+        </div>
+        <p className="how-closing reveal">Something bigger in mind? Custom AI agents, trained on your business — scoped in the Blueprint.</p>
+      </div>
+    </section>
+  );
+}
+
+/* ============================================================ */
+const MORE = [
+  { title: "AI Motion Websites", body: "Cinematic, fast, built to convert — a site that looks like you charge what you’re worth." },
+  { title: "Local SEO & Google Profile", body: "When someone nearby searches for what you do, yours is the first name they see." },
+  { title: "AI Ad Management", body: "ChatGPT and Meta ads launched, tuned, and managed — leads arriving while you work." },
+  { title: "Custom AI Agents", body: "An assistant trained on your business, your data, your voice — on duty around the clock." },
+  { title: "Content Engines", body: "On-brand social and email, drafted and scheduled before you’ve had coffee." },
+  { title: "AI Team Training", body: "Your team, fluent in the tools that actually move the needle." },
+];
+function MoreServices() {
+  return (
+    <section className="section" id="more">
+      <div className="container">
+        <div className="section-head reveal">
+          <p className="eyebrow">Beyond Automation</p>
+          <ScrollText as="h2" text="Under the same roof." />
+        </div>
+        <div className="card-grid">
+          {MORE.map(({ title, body }, i) => (
+            <div className="card reveal" key={title} style={delay((i % 3) * 0.08)}>
               <h3>{title}</h3>
               <p>{body}</p>
             </div>
@@ -277,67 +595,21 @@ function Problem() {
 }
 
 /* ============================================================ */
-const FEATURES = [
-  { num: "01", title: "Lead Qualification & Follow-up",
-    body: "New leads enter your CRM. We score them, route the hot ones to the right rep, and send a personalized first-touch email within 60 seconds — without your team writing a word.",
-    outcomes: ["Reply rate up 3–5×", "First-touch time: minutes, not days", "Reps focus on hot leads, not the noise"] },
-  { num: "02", title: "Weekly Reporting",
-    body: "Every Monday morning, the report writes itself. Numbers pulled from your stack, narrative drafted by AI, in your inbox before your first coffee.",
-    outcomes: ["3–4 hours/week back to you", "Same format every week — no manual deck wrangling", "Drill-down links to the underlying data"] },
-  { num: "03", title: "Meeting Prep & Follow-up",
-    body: "Before every call: a one-pager on who you’re meeting, what they care about, and what’s happened since last contact. After every call: action items captured, owners assigned, follow-ups scheduled.",
-    outcomes: ["Walk in armed every time", "Zero action items lost", "Compounds across your whole team"] },
-];
-
-function WhatWeBuild() {
-  return (
-    <section className="section" id="what-we-build">
-      <div className="container">
-        <div className="section-head reveal">
-          <p className="eyebrow">What We Build</p>
-          <ScrollText as="h2" text="Custom automation for the work you can’t hire fast enough to cover." />
-        </div>
-        <div style={{ marginTop: "1rem" }}>
-          {FEATURES.map((f, i) => (
-            <div className={"feature reveal" + (i % 2 ? " flip" : "")} key={f.num}>
-              <div className="feature-text">
-                <div className="feature-num">{f.num}</div>
-                <h3>{f.title}</h3>
-                <p>{f.body}</p>
-                <ul className="outcomes">
-                  {f.outcomes.map((o) => (
-                    <li key={o}><span className="tick"><Check /></span>{o}</li>
-                  ))}
-                </ul>
-              </div>
-              <div className="feature-preview">
-                <span className="ph-label">UI preview</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ============================================================ */
 const STEPS = [
-  { n: "01", title: "The discovery call.", timing: "~45 minutes, remote.",
-    body: "A recorded conversation about how your business runs. We walk through where the money comes from, where your time goes, where the friction lives, what’s already wired and what isn’t. No pitch, no software demo — just a careful look." },
-  { n: "02", title: "The written report.", timing: "Delivered within seven days.",
-    body: "A formal report: the revenue plays, the time-savings plays, and the compound plays that do both — each with cost, ROI math, and timeline. Built from the call transcript, not a template." },
-  { n: "03", title: "The closing call.", timing: "~20 minutes, remote.",
-    body: "We walk you through the findings. From there, three paths: build the top priority with us, build it yourself with the roadmap, or build nothing. The report is yours either way." },
+  { n: "01", title: "The free 15-minute audit.", timing: "Fifteen minutes. No cost, no pitch.",
+    body: "You tell me how the work actually flows; I point to where the money is leaking and what would stop it. You keep the ideas whether we go further or not." },
+  { n: "02", title: "The $999 Blueprint.", timing: "Delivered within seven days.",
+    body: "A written roadmap of your highest-return automations — what to build, what it costs, what it returns, in plain numbers. Yours to keep, credited in full toward any build." },
+  { n: "03", title: "I build it — and keep it running.", timing: "Done-for-you.",
+    body: "Pick the play and I build it, test it, and hand it over working. Want it owned, watched, and improved every month? That’s the Concierge — seven seats, month-to-month, and you see exactly what it books you." },
 ];
-
 function HowItWorks() {
   return (
     <section className="section" id="how-it-works">
       <div className="container">
         <div className="section-head reveal">
           <p className="eyebrow how-eyebrow">How It Works</p>
-          <CharReveal as="h2" className="how-headline">A conversation, a blueprint, a decision.</CharReveal>
+          <CharReveal as="h2" className="how-headline">Three steps. The first one’s free.</CharReveal>
         </div>
         <div className="steps">
           {STEPS.map((s) => (
@@ -351,20 +623,31 @@ function HowItWorks() {
             </div>
           ))}
         </div>
-        <p className="how-closing reveal">Most of these turn into a build. Some don’t. Both are fine outcomes for us — we don’t sell what doesn’t pencil out.</p>
+        <p className="how-closing reveal">Most audits turn into a build. Some don’t. Both are fine outcomes — I don’t sell what doesn’t pencil out.</p>
       </div>
     </section>
   );
 }
 
 /* ============================================================ */
-const PLANS = [
-  { tier: "Starter", price: "$2k", what: "A task, automated.", delivery: "2 weeks", support: "30-day" },
-  { tier: "Standard", price: "$5–10k", what: "A whole process runs itself.", delivery: "3–4 weeks", support: "30-day" },
-  { tier: "Premium", price: "$15–25k", popular: true, what: "A custom AI employee.", delivery: "4–6 weeks", support: "30-day + handoff" },
-  { tier: "Enterprise", price: "$25k+", what: "Autonomous, ongoing.", delivery: "Custom", support: "Optional retainer" },
-];
+function Founder() {
+  return (
+    <section className="section" id="founder">
+      <div className="container moment reveal">
+        <p className="moment-eyebrow">Who You Work With</p>
+        <CharReveal as="h2" className="moment-h">One operator. Not an agency.</CharReveal>
+        <p className="moment-body">
+          BlackRain is one operator. I spent years in merchant finance, on the phone with hundreds of owners, watching
+          good businesses bleed the same way: leads dying in an inbox, follow-up that never happened, hours lost to
+          reports nobody read. I build the systems that end it. When you call, you get the person who built your
+          system — no account manager, no offshore team. Built in Connecticut.
+        </p>
+      </div>
+    </section>
+  );
+}
 
+/* ============================================================ */
 function Pricing() {
   return (
     <section className="section" id="pricing">
@@ -372,10 +655,12 @@ function Pricing() {
         <p className="moment-eyebrow how-eyebrow">Pricing</p>
         <CharReveal as="h2" className="how-headline">Priced to scope.</CharReveal>
         <p className="moment-body">
-          Project-based work, custom-quoted after the $999 blueprint.
+          Project-based work, custom-quoted after the $999 Blueprint. No subscriptions required, no surprises — the
+          price is in writing before anything begins.
         </p>
         <p className="how-closing">
-          Larger systems sometimes warrant an optional monthly retainer — tuning, monitoring, priority support. Quoted in the blueprint when applicable.
+          Larger systems sometimes warrant an optional monthly retainer — tuning, monitoring, priority support. Quoted
+          in the blueprint when applicable.
         </p>
       </div>
     </section>
@@ -385,21 +670,32 @@ function Pricing() {
 /* ============================================================ */
 function Consult() {
   return (
-    <section className="section consult" id="diagnostic">
+    <section className="section consult" id="start">
       <div className="container">
-        <div className="reveal">
-          <ScrollText as="h2" text="Book your blueprint." />
+        <div className="consult-inner reveal">
+          <ScrollText as="h2" text="Start with fifteen free minutes." />
           <p className="sub">
-            A paid, written walk through your operation. Yours to keep,
-            credited to any build.
+            I look at how your business actually runs and show you one or two places AI pays for itself. No pitch, no
+            obligation — you keep the ideas either way.
           </p>
-        </div>
-        <div className="cta-with-sub reveal">
-          <a className="cta-pill" data-magnetic href="https://cal.com/blackrain/blueprint" target="_blank" rel="noopener noreferrer">
-            <span className="text">Let’s begin.</span>
-            <span className="arrow" aria-hidden="true">→</span>
-          </a>
-          <p className="cta-sub">Booking is paid: $999, credited to any build.</p>
+          <p className="sub">
+            If it’s a fit, the $999 Blueprint maps your highest-return automations into a written roadmap, credited in
+            full toward any build. And for owners who want it run for them, there’s the Concierge — seven seats,
+            month-to-month, and you see exactly what it books you. Walk away any time.
+          </p>
+          <p className="sub italic">
+            You’re never out the money on the diagnosis — the $999 credits toward whatever you build.
+          </p>
+          <div className="cta-stack">
+            <a className="cta-pill" data-magnetic href={AUDIT_URL} target="_blank" rel="noopener noreferrer">
+              Book the free 15-min audit <span className="arrow" aria-hidden="true">→</span>
+            </a>
+            <p className="cta-sub">Free · 15 minutes · no pitch.</p>
+            <a className="cta" data-magnetic href={BLUEPRINT_URL} target="_blank" rel="noopener noreferrer">
+              <span className="label">Or go straight to the $999 Blueprint</span>
+              <span className="arrow">→</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -413,39 +709,35 @@ function Footer() {
       <div className="container footer-stack">
         <div className="footer-cols">
           <div className="footer-brand">
-            <div className="lockup">
-              <img src={DROPLET} alt="" />
-              <span className="wordmark">Blackrain</span>
+            <div className="lockup"><span className="wordmark">Black<span className="r">Rain</span></span></div>
+            <p className="tagline">AI systems that pay for themselves.</p>
+            <div className="footer-social" aria-label="Social profiles">
+              {SOCIALS.map(({ Icon, label, href }) => (
+                <a key={label} className="social-btn" href={href} aria-label={label} target="_blank" rel="noopener noreferrer">
+                  <Icon size={18} />
+                </a>
+              ))}
             </div>
-            <p className="tagline">AI automations, custom-built.</p>
           </div>
-
           <div className="footer-section">
             <h4 className="footer-section-title">Navigate</h4>
             <nav className="footer-inline-row" aria-label="Footer">
-              <a href="#top">Home</a>
-              <span className="sep" aria-hidden="true">·</span>
-              <a href="#how-it-works">Process</a>
-              <span className="sep" aria-hidden="true">·</span>
-              <a href="#pricing">Pricing</a>
-              <span className="sep" aria-hidden="true">·</span>
-              <a href="#diagnostic">Begin</a>
+              <a href="#top">Home</a><span className="sep" aria-hidden="true">·</span>
+              <a href="#what-i-build">Services</a><span className="sep" aria-hidden="true">·</span>
+              <a href="#how-it-works">Process</a><span className="sep" aria-hidden="true">·</span>
+              <a href="#start">Begin</a>
             </nav>
           </div>
-
           <div className="footer-section">
             <h4 className="footer-section-title">Contact</h4>
             <div className="footer-inline-row">
-              <a href="tel:18608032795">860.803.2795</a>
+              <a href="tel:+18608032795">860.803.2795</a>
               <span className="sep" aria-hidden="true">·</span>
               <a href="mailto:ryan@blackrainautomations.com">ryan@blackrainautomations.com</a>
-              {/* TODO: <a href={LINKEDIN_URL}>...</a> once profile URL is finalized */}
             </div>
           </div>
         </div>
-
         <hr className="footer-rule" />
-
         <div className="footer-legal">
           <p className="copy">© 2026 BlackRain Automations LLC · Built in Connecticut</p>
           <nav className="legal-links" aria-label="Legal">
@@ -460,91 +752,27 @@ function Footer() {
 }
 
 /* ============================================================ */
-const MARQUEE_A = ["Lead scoring", "60-second first touch", "CRM routing", "Reply rate 3–5×", "Hot leads, not noise", "First-touch in minutes"];
-const MARQUEE_B = ["Monday report auto-drafted", "Meeting one-pagers", "Action items captured", "Drill-down links", "Edge-case tested", "You own everything"];
-
-function MarqueeRow({ items, dir, scrollRef }) {
-  return (
-    <div className="marquee-row" ref={scrollRef} data-dir={dir}>
-      {[...items, ...items, ...items].map((label, i) => (
-        <span className="marquee-tile" key={i}>
-          <span className="m-dot"></span>{label}
-        </span>
-      ))}
-    </div>
-  );
-}
-
-function MarqueeBand() {
-  const secRef = useRef(null);
-  const row1 = useRef(null);
-  const row2 = useRef(null);
-  useEffect(() => {
-    const sec = secRef.current;
-    if (!sec) return;
-    const base1 = row1.current ? row1.current.scrollWidth / 3 : 0;
-    const base2 = row2.current ? row2.current.scrollWidth / 3 : 0;
-    let raf = null;
-    const update = () => {
-      raf = null;
-      const top = sec.getBoundingClientRect().top + window.scrollY;
-      const offset = (window.scrollY - top + window.innerHeight) * 0.18;
-      if (row1.current) row1.current.style.transform = `translateX(${-base1 - offset}px)`;
-      if (row2.current) row2.current.style.transform = `translateX(${-base2 + offset}px)`;
-    };
-    const onScroll = () => { if (!raf) raf = requestAnimationFrame(update); };
-    update();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-      if (raf) cancelAnimationFrame(raf);
-    };
-  }, []);
-  return (
-    <section className="marquee" ref={secRef} aria-hidden="true">
-      <div className="marquee-rows">
-        <MarqueeRow items={MARQUEE_A} dir="left" scrollRef={row1} />
-        <MarqueeRow items={MARQUEE_B} dir="right" scrollRef={row2} />
-      </div>
-    </section>
-  );
-}
-
-/* ============================================================ */
-function TheMoment() {
-  return (
-    <section className="section" id="the-moment">
-      <div className="container moment reveal">
-        <p className="moment-eyebrow">The Arrival</p>
-        <CharReveal as="h2" className="moment-h">The infrastructure has arrived.</CharReveal>
-        <p className="moment-body">
-          On May 13, 2026, Anthropic introduced Claude for Small Business: fifteen workflows for the work that quietly eats small operators — invoice chasing, lead follow-up, outbound campaigns, month-end close. The models underneath are all 2026 — Opus 4.8 (May 28), Sonnet 4.6, GPT-5.4, Gemini 3.1. The economics are no longer speculative: every dollar invested returns <span className="tnum">$3.50</span>, with first real return inside sixty days.
-        </p>
-        <a className="arrival-link" href="#pricing">
-          <span className="al-label">See pricing</span>
-          <span className="arrow">→</span>
-        </a>
-      </div>
-    </section>
-  );
-}
-
-/* ============================================================ */
 export default function App() {
   useReveal();
   useMagnetic();
   return (
     <Fragment>
+      <ScrollProgress />
+      <RainField />
+      <div className="grain" aria-hidden="true" />
       <Header />
       <main>
-        <HeroCard />
-        <HeroMessage />
+        <Splash />
+        <Hero />
+        <Briefing />
         <hr className="divider" />
-        <TheMoment />
+        <WhatIBuild />
+        <hr className="divider" />
+        <MoreServices />
         <hr className="divider" />
         <HowItWorks />
+        <hr className="divider" />
+        <Founder />
         <hr className="divider" />
         <Pricing />
         <hr className="divider" />
