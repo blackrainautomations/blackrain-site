@@ -755,7 +755,6 @@ export default function App() {
   return (
     <Fragment>
       <ScrollProgress />
-      <RainField />
       <div className="grain" aria-hidden="true" />
       <Header />
       <main>
