@@ -249,7 +249,7 @@ h1, h2, h3 {
 }
 .splash-sig {
   font-family: "Mr De Haviland", cursive; color: var(--ink);
-  font-size: clamp(1.9rem, 5.5vw, 2.7rem); line-height: 1; margin: 1.7rem 0 0; animation-delay: 0.75s;
+  font-size: clamp(2.15rem, 6.2vw, 3.05rem); line-height: 1; margin: 1.7rem 0 0; animation-delay: 0.75s;
 }
 
 /* --- all-inclusive menu (added 2026-06-21) --- */
