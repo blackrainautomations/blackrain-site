@@ -754,7 +754,7 @@ function Footer() {
 /* ============================================================ */
 /* ============================================================ */
 const LADDER = [
-  { step: "Free 15-Min Audit", price: "Free", badge: "Start here", desc: "We find where your pipeline leaks. No pitch — you keep the ideas." },
+  { step: "Free 15-Min Audit", price: "Free", desc: "We find where your pipeline leaks. No pitch — you keep the ideas." },
   { step: "The $999 Blueprint", price: "$999", desc: "A written roadmap of your highest-ROI automations. Credited in full toward any build." },
   { step: "Builds", price: "$2k–25k+", desc: "Starter to enterprise. Priced in writing before a thing is built." },
   { step: "The Concierge", price: "~$1,500/mo", desc: "The flagship — six seats, done-with-you. Strategy, direct access, systems run and improved every month." },
@@ -797,7 +797,7 @@ function Menu() {
         <div className="ladder reveal">
           {LADDER.map((l) => (
             <div className="ladder-row" key={l.step}>
-              <div className="ladder-main"><h3>{l.step}{l.badge && <span className="ladder-badge">{l.badge}</span>}</h3><p>{l.desc}</p></div>
+              <div className="ladder-main"><h3>{l.step}</h3><p>{l.desc}</p></div>
               <div className="ladder-price">{l.price}</div>
             </div>
           ))}
