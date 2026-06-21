@@ -209,10 +209,12 @@ h1, h2, h3 {
 .splash::before {
   content: ""; position: absolute; inset: -20%; z-index: 0; pointer-events: none;
   background:
-    radial-gradient(44% 44% at 30% 40%, rgba(59,130,246,.24), transparent 66%),
-    radial-gradient(46% 46% at 70% 58%, rgba(139,92,246,.20), transparent 66%),
-    radial-gradient(40% 40% at 56% 28%, rgba(45,212,191,.15), transparent 66%);
-  filter: blur(26px);
+    radial-gradient(50% 50% at 16% 20%, rgba(59,130,246,.22), transparent 72%),
+    radial-gradient(52% 52% at 84% 26%, rgba(139,92,246,.20), transparent 72%),
+    radial-gradient(55% 55% at 22% 82%, rgba(45,212,191,.16), transparent 72%),
+    radial-gradient(52% 52% at 80% 80%, rgba(59,130,246,.18), transparent 72%),
+    radial-gradient(48% 48% at 52% 50%, rgba(139,92,246,.13), transparent 74%);
+  filter: blur(30px);
   animation: splashAura 24s ease-in-out infinite alternate;
   will-change: transform, opacity;
 }
@@ -234,11 +236,11 @@ h1, h2, h3 {
 
 /* AI Automation Consultancy line: gentle letter-spacing breathe */
 .splash-tag {
-  animation: riseIn 0.85s var(--ease) both, tagBreathe 5s ease-in-out infinite 0.9s;
+  animation: riseIn 0.85s var(--ease) both, tagBreathe 7s ease-in-out infinite 0.9s;
 }
 @keyframes tagBreathe {
-  0%, 100% { letter-spacing: 0.34em; text-indent: 0.34em; opacity: .7; }
-  50%      { letter-spacing: 0.5em;  text-indent: 0.5em;  opacity: 1; }
+  0%, 100% { letter-spacing: 0.34em; text-indent: 0.34em; opacity: .86; }
+  50%      { letter-spacing: 0.365em; text-indent: 0.365em; opacity: 1; }
 }
 
 @media (prefers-reduced-motion: reduce) {
