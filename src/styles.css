@@ -248,7 +248,7 @@ h1, h2, h3 {
   max-width: 40ch; margin: 1.3rem auto 0; line-height: 1.45; animation-delay: 0.5s;
 }
 .splash-sig {
-  font-family: "Mr De Haviland", cursive; color: var(--ink);
+  font-family: "Herr Von Muellerhoff", cursive; color: var(--ink);
   font-size: clamp(1.9rem, 5.5vw, 2.7rem); line-height: 1; margin: 1.7rem 0 0; animation-delay: 0.75s;
 }
 
