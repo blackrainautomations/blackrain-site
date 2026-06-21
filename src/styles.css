@@ -226,13 +226,6 @@ h1, h2, h3 {
 
 /* droplet breathes a bit more + soft glow pulse */
 @keyframes dropBreathe { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-3px) scale(1.055); } }
-.splash-droplet-wrap::before {
-  content: ""; position: absolute; left: 50%; top: 46%; width: 135%; height: 135%;
-  transform: translate(-50%, -50%); z-index: -1; pointer-events: none;
-  background: radial-gradient(circle, rgba(59,130,246,.30), transparent 62%);
-  animation: dropGlow 6.5s ease-in-out infinite;
-}
-@keyframes dropGlow { 0%, 100% { opacity: .4; transform: translate(-50%,-50%) scale(.88); } 50% { opacity: .85; transform: translate(-50%,-50%) scale(1.12); } }
 
 /* AI Automation Consultancy line: gentle letter-spacing breathe */
 .splash-tag {
