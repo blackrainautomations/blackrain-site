@@ -209,10 +209,10 @@ h1, h2, h3 {
 .splash::before {
   content: ""; position: absolute; inset: -20%; z-index: 0; pointer-events: none;
   background:
-    radial-gradient(38% 38% at 32% 40%, rgba(59,130,246,.10), transparent 70%),
-    radial-gradient(40% 40% at 68% 58%, rgba(139,92,246,.08), transparent 70%),
-    radial-gradient(34% 34% at 56% 30%, rgba(45,212,191,.06), transparent 70%);
-  filter: blur(20px);
+    radial-gradient(44% 44% at 30% 40%, rgba(59,130,246,.24), transparent 66%),
+    radial-gradient(46% 46% at 70% 58%, rgba(139,92,246,.20), transparent 66%),
+    radial-gradient(40% 40% at 56% 28%, rgba(45,212,191,.15), transparent 66%);
+  filter: blur(26px);
   animation: splashAura 24s ease-in-out infinite alternate;
   will-change: transform, opacity;
 }
@@ -227,20 +227,19 @@ h1, h2, h3 {
 .splash-droplet-wrap::before {
   content: ""; position: absolute; left: 50%; top: 46%; width: 135%; height: 135%;
   transform: translate(-50%, -50%); z-index: -1; pointer-events: none;
-  background: radial-gradient(circle, rgba(59,130,246,.16), transparent 64%);
+  background: radial-gradient(circle, rgba(59,130,246,.30), transparent 62%);
   animation: dropGlow 6.5s ease-in-out infinite;
 }
-@keyframes dropGlow { 0%, 100% { opacity: .3; transform: translate(-50%,-50%) scale(.9); } 50% { opacity: .65; transform: translate(-50%,-50%) scale(1.1); } }
+@keyframes dropGlow { 0%, 100% { opacity: .4; transform: translate(-50%,-50%) scale(.88); } 50% { opacity: .85; transform: translate(-50%,-50%) scale(1.12); } }
 
-/* AI Automation Consultancy line: subtle shimmer sweep */
+/* AI Automation Consultancy line: gentle letter-spacing breathe */
 .splash-tag {
-  background: linear-gradient(100deg, var(--muted) 32%, #1a1d23 50%, var(--muted) 68%);
-  background-size: 220% 100%;
-  -webkit-background-clip: text; background-clip: text;
-  -webkit-text-fill-color: transparent; color: transparent;
-  animation: riseIn 0.85s var(--ease) both, tagShimmer 8s linear infinite 0.9s;
+  animation: riseIn 0.85s var(--ease) both, tagBreathe 5s ease-in-out infinite 0.9s;
 }
-@keyframes tagShimmer { 0% { background-position: 130% 0; } 100% { background-position: -130% 0; } }
+@keyframes tagBreathe {
+  0%, 100% { letter-spacing: 0.34em; text-indent: 0.34em; opacity: .7; }
+  50%      { letter-spacing: 0.5em;  text-indent: 0.5em;  opacity: 1; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .splash::before, .splash-droplet-wrap::before { animation: none; }
