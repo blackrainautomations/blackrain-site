@@ -411,12 +411,14 @@ function Splash() {
         </div>
         <div className="splash-wordmark">BLACKRAIN</div>
         <p className="splash-tag">AI Automation Consultancy</p>
+        <p className="splash-line">Do yourself a favor &mdash; take advantage of the AI gold rush.</p>
         <div className="splash-rule" />
         <div className="splash-contact">
           <a href="tel:+18608032795">860.803.2795</a>
           <a href="mailto:ryan@blackrainautomations.com">ryan@blackrainautomations.com</a>
           <a href="https://blackrainautomations.com" target="_blank" rel="noopener noreferrer">blackrainautomations.com</a>
         </div>
+        <p className="splash-sig">Ryan Kirchberger</p>
       </div>
       <div className="scroll-cue" aria-hidden="true"><span>Scroll</span><span className="chev" /></div>
     </section>
