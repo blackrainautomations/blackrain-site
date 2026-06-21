@@ -766,7 +766,23 @@ const STAGES = [
   { key: "Expand", sub: "Money left on the table", items: ["Upsell & cross-sell", "Reorder / replenish", "Referral mining"] },
   { key: "Recover", sub: "Earned money leaking out", items: ["Win-back / churn-save", "CRM reactivation", "Review requests", "Invoice follow-up"] },
 ];
-const ADJACENT = ["AI Motion Websites", "Local SEO & Google Profile", "AI Ad Management", "Custom AI Agents", "Content Engines", "AI Team Training", "Done-for-You Lead Gen", "Skill-File Builds"];
+const TIME = [
+  "Reports & dashboards that build themselves",
+  "Scheduling that fills itself",
+  "Call notes & transcription, logged for you",
+  "Invoice & payment follow-up",
+  "Data entry & admin, automated",
+  "Skill-File builds — your knowledge, turned into agent skills",
+  "AI team training & setup",
+];
+const VISIBILITY = [
+  "Full Business Revamp — site, Google, reviews, booking, brand",
+  "AI Motion Websites",
+  "Local SEO & Google Business Profile",
+  "AI Ad Management (Meta + ChatGPT)",
+  "Content engines — social & email on autopilot",
+  "Review generation — more 5-stars, automatically",
+];
 
 function Menu() {
   return (
@@ -785,7 +801,7 @@ function Menu() {
             </div>
           ))}
         </div>
-        <p className="menu-group-label reveal">The Revenue Systems</p>
+        <p className="menu-group-label reveal">Make More Money <span>&middot; revenue systems</span></p>
         <div className="card-grid">
           {STAGES.map((s) => (
             <div className="card reveal" key={s.key}>
@@ -795,8 +811,10 @@ function Menu() {
             </div>
           ))}
         </div>
-        <p className="menu-group-label reveal">Under the Same Roof</p>
-        <ul className="adjacent reveal">{ADJACENT.map((a) => <li key={a}>{a}</li>)}</ul>
+        <p className="menu-group-label reveal">Save Time <span>&middot; the busywork, automated</span></p>
+        <ul className="menu-list cols reveal">{TIME.map((t) => <li key={t}>{t}</li>)}</ul>
+        <p className="menu-group-label reveal">Get Seen &amp; Look the Part <span>&middot; visibility &amp; brand</span></p>
+        <ul className="menu-list cols reveal">{VISIBILITY.map((v) => <li key={v}>{v}</li>)}</ul>
       </div>
     </section>
   );
