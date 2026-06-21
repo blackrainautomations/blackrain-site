@@ -461,9 +461,6 @@ function Hero() {
     <section className="hero">
       <div className="hero-inner">
         <div className="hero-content">
-        <div className="hero-brand">Black<span className="r">Rain</span></div>
-        <div className="hero-divider" aria-hidden="true" />
-        <p className="hero-eyebrow">AI Automation Consultancy</p>
         <h1 className="hero-headline">
           AI systems that get local businesses <CycleWord />
         </h1>
