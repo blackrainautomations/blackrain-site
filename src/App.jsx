@@ -775,7 +775,7 @@ function Menu() {
         <div className="section-head reveal" style={{ textAlign: "center" }}>
           <p className="eyebrow">The Menu</p>
           <ScrollText as="h2" text="Everything we build." />
-          <p className="menu-intro">We diagnose first and prescribe one system at a time — but here is the full surface of what BlackRain can do for a local business.</p>
+          <p className="menu-intro">Most businesses run the stock version of themselves. Here&rsquo;s everything we use to jailbreak yours &mdash; we diagnose first, then prescribe one system at a time.</p>
         </div>
         <div className="ladder reveal">
           {LADDER.map((l) => (
