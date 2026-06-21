@@ -802,9 +802,9 @@ function Menu() {
           ))}
         </div>
         <p className="menu-group-label reveal">Make More Money <span>&middot; revenue systems</span></p>
-        <div className="card-grid">
+        <div className="revenue-grid">
           {STAGES.map((s) => (
-            <div className="card reveal" key={s.key}>
+            <div className="rg-stage reveal" key={s.key}>
               <h3>{s.key}</h3>
               <p className="stage-sub">{s.sub}</p>
               <ul className="menu-list">{s.items.map((i) => <li key={i}>{i}</li>)}</ul>
