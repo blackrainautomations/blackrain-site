@@ -240,8 +240,23 @@ h1, h2, h3 {
   .splash::before, .splash-droplet-wrap::before { animation: none; }
   .splash-tag { animation: none; -webkit-text-fill-color: var(--muted); color: var(--muted); }
 }
+
+/* --- all-inclusive menu (added 2026-06-21) --- */
+.menu-intro { color: var(--muted); max-width: 620px; margin: 0.9rem auto 0; }
+.ladder { margin: 2.6rem 0 3.4rem; border-top: 1px solid var(--line); }
+.ladder-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1.5rem; padding: 1.15rem 0; border-bottom: 1px solid var(--line); }
+.ladder-main h3 { font-family: "Sora", sans-serif; font-size: 1.12rem; margin: 0 0 0.2rem; }
+.ladder-main p { color: var(--muted); font-size: 0.92rem; max-width: 560px; margin: 0; }
+.ladder-price { font-weight: 600; white-space: nowrap; color: var(--ink); }
+.menu-group-label { text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.72rem; color: var(--muted); margin: 2.6rem 0 1.2rem; }
+.stage-sub { color: var(--muted); font-size: 0.85rem; margin: -0.2rem 0 0.85rem; }
+.menu-list { list-style: none; padding: 0; margin: 0; }
+.menu-list li { padding: 0.4rem 0; border-bottom: 1px dashed var(--line); font-size: 0.95rem; }
+.menu-list li:last-child { border-bottom: 0; }
+.adjacent { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.adjacent li { border: 1px solid var(--line); border-radius: 999px; padding: 0.5rem 1.05rem; font-size: 0.88rem; color: var(--ink); }
 .splash-wordmark {
-  font-family: "Segoe UI", -apple-system, Helvetica, Arial, sans-serif;
+  font-family: "Sora", "Segoe UI", -apple-system, Helvetica, Arial, sans-serif;
   font-weight: 600; font-size: clamp(1.8rem, 6vw, 3.2rem);
   letter-spacing: 0.34em; text-indent: 0.34em; text-transform: uppercase;
   color: var(--heading);

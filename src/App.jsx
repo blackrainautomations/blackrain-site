@@ -749,6 +749,72 @@ function Footer() {
 }
 
 /* ============================================================ */
+/* ============================================================ */
+const LADDER = [
+  { step: "Free 15-Min Audit", price: "Free", desc: "We find where your pipeline leaks. No pitch — you keep the ideas." },
+  { step: "The $999 Blueprint", price: "$999", desc: "A written roadmap of your highest-ROI automations. Credited in full toward any build." },
+  { step: "Builds", price: "$2k–25k+", desc: "Starter to enterprise. Priced in writing before a thing is built." },
+  { step: "The Concierge", price: "~$1,500/mo", desc: "The flagship — six seats, done-with-you. Strategy, direct access, systems run and improved every month." },
+  { step: "Retainers", price: "$300–1,500/mo", desc: "Monitoring and tuning on the larger systems." },
+];
+const STAGES = [
+  { key: "Capture", sub: "Leads arriving but slipping", items: ["Speed-to-lead", "Missed-call text-back", "AI receptionist, 24/7", "Lead qualification"] },
+  { key: "Prospect", sub: "Not enough leads", items: ["Outbound AI SDR", "DM-to-sale closer"] },
+  { key: "Close", sub: "Deals dying mid-funnel", items: ["Quote automation", "Quote recovery", "Sales follow-up", "Booking + no-show", "Proposal & contract", "Bid / RFP response"] },
+  { key: "Expand", sub: "Money left on the table", items: ["Upsell & cross-sell", "Reorder / replenish", "Referral mining"] },
+  { key: "Recover", sub: "Earned money leaking out", items: ["Win-back / churn-save", "CRM reactivation", "Review requests", "Invoice follow-up"] },
+];
+const ADJACENT = ["AI Motion Websites", "Local SEO & Google Profile", "AI Ad Management", "Custom AI Agents", "Content Engines", "AI Team Training", "Done-for-You Lead Gen", "Skill-File Builds"];
+
+function Menu() {
+  return (
+    <section className="section" id="menu">
+      <div className="container">
+        <div className="section-head reveal" style={{ textAlign: "center" }}>
+          <p className="eyebrow">The Menu</p>
+          <ScrollText as="h2" text="Everything we build." />
+          <p className="menu-intro">We diagnose first and prescribe one system at a time — but here is the full surface of what BlackRain can do for a local business.</p>
+        </div>
+        <div className="ladder reveal">
+          {LADDER.map((l) => (
+            <div className="ladder-row" key={l.step}>
+              <div className="ladder-main"><h3>{l.step}</h3><p>{l.desc}</p></div>
+              <div className="ladder-price">{l.price}</div>
+            </div>
+          ))}
+        </div>
+        <p className="menu-group-label reveal">The Revenue Systems</p>
+        <div className="card-grid">
+          {STAGES.map((s) => (
+            <div className="card reveal" key={s.key}>
+              <h3>{s.key}</h3>
+              <p className="stage-sub">{s.sub}</p>
+              <ul className="menu-list">{s.items.map((i) => <li key={i}>{i}</li>)}</ul>
+            </div>
+          ))}
+        </div>
+        <p className="menu-group-label reveal">Under the Same Roof</p>
+        <ul className="adjacent reveal">{ADJACENT.map((a) => <li key={a}>{a}</li>)}</ul>
+      </div>
+    </section>
+  );
+}
+
+function BookCTA() {
+  return (
+    <section className="section consult" id="book">
+      <div className="container consult-inner reveal" style={{ textAlign: "center" }}>
+        <ScrollText as="h2" text="Start with fifteen free minutes." />
+        <p className="sub">No pitch. We look at how your business runs and show you where AI pays for itself — you keep the ideas either way.</p>
+        <a className="cta-pill" data-magnetic href={AUDIT_URL} target="_blank" rel="noopener noreferrer">
+          Book a Free Audit <span className="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+  );
+}
+
+/* ============================================================ */
 export default function App() {
   useReveal();
   useMagnetic();
@@ -756,23 +822,10 @@ export default function App() {
     <Fragment>
       <ScrollProgress />
       <div className="grain" aria-hidden="true" />
-      <Header />
       <main>
         <Splash />
-        <Hero />
-        <Briefing />
-        <hr className="divider" />
-        <WhatIBuild />
-        <hr className="divider" />
-        <MoreServices />
-        <hr className="divider" />
-        <HowItWorks />
-        <hr className="divider" />
-        <Founder />
-        <hr className="divider" />
-        <Pricing />
-        <hr className="divider" />
-        <Consult />
+        <Menu />
+        <BookCTA />
       </main>
       <Footer />
     </Fragment>
