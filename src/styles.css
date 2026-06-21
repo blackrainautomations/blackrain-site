@@ -245,7 +245,7 @@ h1, h2, h3 {
 .splash-line {
   font-family: "Cormorant Garamond", Georgia, serif; font-style: italic;
   font-size: clamp(1.05rem, 2.5vw, 1.5rem); color: var(--body);
-  max-width: 30ch; margin: 1.3rem auto 0; line-height: 1.4; animation-delay: 0.5s;
+  max-width: 40ch; margin: 1.3rem auto 0; line-height: 1.45; animation-delay: 0.5s;
 }
 .splash-sig {
   font-family: "Pinyon Script", cursive; color: var(--ink);
