@@ -411,7 +411,7 @@ function Splash() {
         </div>
         <div className="splash-wordmark">BLACKRAIN</div>
         <p className="splash-tag">AI Automation Consultancy</p>
-        <p className="splash-line">In the AI gold rush, the winners aren&rsquo;t digging &mdash; they&rsquo;re holding the right pickaxe. BlackRain builds yours.</p>
+        <p className="splash-line">Most owners run the stock version of their business. We jailbreak it.</p>
         <div className="splash-rule" />
         <div className="splash-contact">
           <a href="tel:+18608032795">860.803.2795</a>
